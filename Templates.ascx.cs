@@ -67,12 +67,12 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
         }
 
-        private void drpThemes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void drpThemes_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindSelectedTheme();
         }
 
-        private void cmdUpdate_Click(object sender, EventArgs e)
+        protected void cmdUpdate_Click(object sender, EventArgs e)
         {
             bool blnSucess = false;
             SaveTemplates(ref blnSucess);
@@ -82,7 +82,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
         }
 
-        private void cmdUpdateExit_Click(object sender, EventArgs e)
+        protected void cmdUpdateExit_Click(object sender, EventArgs e)
         {
             bool blnSucess = false;
             SaveTemplates(ref blnSucess);
@@ -94,7 +94,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL(TabId));
         }
 
-        private void cmdDeleteSelected_Click(object sender, EventArgs e)
+        protected void cmdDeleteSelected_Click(object sender, EventArgs e)
         {
             try
             {
@@ -111,12 +111,12 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             drpThemes.Items.FindByText(ThemeName).Selected = true;
         }
 
-        private void drpLocales_SelectedIndexChanged(object sender, EventArgs e)
+        protected void drpLocales_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindSelectedTheme();
         }
 
-        private void cmdCancel_Click(object sender, EventArgs e)
+        protected void cmdCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
@@ -144,7 +144,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             cmdDeleteSelected.Text = Localization.GetString("cmdDeleteSelected", LocalResourceFile);
         }
 
-        private void cmdCopySelected_Click(object sender, EventArgs e)
+        protected void cmdCopySelected_Click(object sender, EventArgs e)
         {
             pnlTemplateName.Visible = true;
         }

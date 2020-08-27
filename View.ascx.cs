@@ -91,8 +91,6 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             DeleteAccount();
         }
 
-        /* TODO ERROR: Skipped EndRegionDirectiveTrivia */
-        /* TODO ERROR: Skipped RegionDirectiveTrivia */
         private void UpdateAccount()
         {
             pnlSuccess.Visible = false;
@@ -712,8 +710,6 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
         }
 
-        /* TODO ERROR: Skipped EndRegionDirectiveTrivia */
-        /* TODO ERROR: Skipped RegionDirectiveTrivia */
         public DotNetNuke.Entities.Modules.Actions.ModuleActionCollection ModuleActions
         {
             get
@@ -723,7 +719,5 @@ namespace Connect.Modules.UserManagement.AccountUpdate
                 return Actions;
             }
         }
-
-        /* TODO ERROR: Skipped EndRegionDirectiveTrivia */
     }
 }

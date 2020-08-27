@@ -6,16 +6,16 @@
 
     <div class="dnnFormItem">
         <dnn:label id="plTheme" controlname="drpThemes" runat="server" />
-        <asp:DropDownList ID="drpThemes" runat="server" AutoPostBack="true"></asp:DropDownList>
+        <asp:DropDownList ID="drpThemes" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpThemes_SelectedIndexChanged" />
         &nbsp;
-        <asp:LinkButton ID="cmdCopySelected" runat="server"></asp:LinkButton>
+        <asp:LinkButton ID="cmdCopySelected" runat="server" OnClick="cmdCopySelected_Click" />
         &nbsp;
-        <asp:LinkButton ID="cmdDeleteSelected" runat="server"></asp:LinkButton>
+        <asp:LinkButton ID="cmdDeleteSelected" runat="server" OnClick="cmdDeleteSelected_Click" />
     </div>
 
     <div class="dnnFormItem" runat="server" id="pnlLocales" visible="false">
         <dnn:label id="plLocale" controlname="drpLocales" runat="server" />
-        <asp:DropDownList ID="drpLocales" runat="server" AutoPostBack="true"></asp:DropDownList>
+        <asp:DropDownList ID="drpLocales" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpLocales_SelectedIndexChanged" />
     </div>
 
     <div class="dnnFormItem">
@@ -47,9 +47,9 @@
     </div>
 
     <ul class="dnnActions">
-        <li><asp:LinkButton ID="cmdUpdate" runat="server" CssClass="dnnPrimaryAction"></asp:LinkButton></li>
-        <li><asp:LinkButton ID="cmdUpdateExit" runat="server" CssClass="dnnPrimaryAction"></asp:LinkButton></li>
-        <li><asp:LinkButton ID="cmdCancel" runat="server" CssClass="dnnSecondaryAction"></asp:LinkButton></li>
+        <li><asp:LinkButton ID="cmdUpdate" runat="server" CssClass="dnnPrimaryAction" OnClick="cmdUpdate_Click" /></li>
+        <li><asp:LinkButton ID="cmdUpdateExit" runat="server" CssClass="dnnPrimaryAction" OnClick="cmdUpdateExit_Click" /></li>
+        <li><asp:LinkButton ID="cmdCancel" runat="server" CssClass="dnnSecondaryAction" OnClick="cmdCancel_Click" /></li>
     </ul>
 
 </div>
@@ -71,4 +71,3 @@
 
 } (jQuery, window.Sys));
 </script>
-
