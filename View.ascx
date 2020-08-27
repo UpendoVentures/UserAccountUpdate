@@ -1,5 +1,4 @@
-<%@ Control Language="vb" AutoEventWireup="false" Inherits="Connect.Modules.UserManagement.AccountUpdate.View" Codebehind="View.ascx.vb" %>
-
+<%@ Control Language="c#" AutoEventWireup="true" Inherits="Connect.Modules.UserManagement.AccountUpdate.View" Codebehind="View.ascx.cs" %>
 
 <div class="connect_accountform">
 
@@ -13,6 +12,3 @@
     <asp:PlaceHolder ID="plhProfile" runat="server"></asp:PlaceHolder>       
                      
 </div>
-
-
-
