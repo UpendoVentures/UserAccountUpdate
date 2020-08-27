@@ -58,7 +58,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             ProcessFormTemplate(ref argplhControls, GetTemplate(ModuleTheme, Libraries.UserManagement.Constants.TemplateName_Form, CurrentLocale, false), User);
             plhProfile = argplhControls;
             Button btnUpdate = (Button)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_UpdateButton);
-            if (btnUpdate is object)
+            if (btnUpdate != null)
             {
                 btnUpdate.Click += btnUpdate_Click;
                 if (blnPageNeedsToPostback)
@@ -68,7 +68,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
 
             Button btnDelete = (Button)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_DeleteButton);
-            if (btnDelete is object)
+            if (btnDelete != null)
             {
                 btnDelete.Click += btnDelete_Click;
             }
@@ -105,7 +105,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             bool blnUpdateEmail = false;
             bool blnUpdatePasswordQuestionAndAnswer = false;
             TextBox txtEmail = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_Email);
-            blnUpdateEmail = txtEmail is object;
+            blnUpdateEmail = txtEmail != null;
             if (blnUpdateEmail)
             {
                 if (!IsValidUserAttribute(Libraries.UserManagement.Constants.User_Email, plhProfile))
@@ -128,8 +128,8 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             TextBox txtPassword2 = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_Password2);
             TextBox txtPasswordQuestion = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_PasswordQuestion);
             TextBox txtPasswordAnswer = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_PasswordAnswer);
-            blnUpdatePassword = txtPasswordCurrent is object && txtPassword1 is object && txtPassword2 is object;
-            blnUpdatePasswordQuestionAndAnswer = txtPasswordQuestion is object && txtPasswordAnswer is object && txtPasswordCurrent is object;
+            blnUpdatePassword = txtPasswordCurrent != null && txtPassword1 != null && txtPassword2 != null;
+            blnUpdatePasswordQuestionAndAnswer = txtPasswordQuestion != null && txtPasswordAnswer != null && txtPasswordCurrent != null;
             if (blnUpdatePassword)
             {
                 if (string.IsNullOrEmpty(txtPassword1.Text) && string.IsNullOrEmpty(txtPassword2.Text))
@@ -237,7 +237,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
 
             TextBox txtFirstName = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_Firstname);
-            blnUpdateFirstname = txtFirstName is object;
+            blnUpdateFirstname = txtFirstName != null;
             if (blnUpdateFirstname)
             {
                 if (!IsValidUserAttribute(Libraries.UserManagement.Constants.User_Firstname, plhProfile))
@@ -256,7 +256,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
 
             TextBox txtLastName = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_Lastname);
-            blnUpdateLastname = txtLastName is object;
+            blnUpdateLastname = txtLastName != null;
             if (blnUpdateLastname)
             {
                 if (!IsValidUserAttribute(Libraries.UserManagement.Constants.User_Lastname, plhProfile))
@@ -286,7 +286,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
 
             TextBox txtDisplayName = (TextBox)FindControlRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_Displayname);
-            blnUpdateDisplayname = txtDisplayName is object;
+            blnUpdateDisplayname = txtDisplayName != null;
             if (blnUpdateDisplayname)
             {
                 if (!IsValidUserAttribute(Libraries.UserManagement.Constants.User_Displayname, plhProfile))
@@ -310,7 +310,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
                 try
                 {
                     var prop = ProfileController.GetPropertyDefinitionByName(PortalId, itemProp.Substring(2)); // itemprop comes in the form U:Propertyname or P:Propertyname
-                    if (prop is object)
+                    if (prop != null)
                     {
                         Control argobjControl23 = plhProfile;
                         if (!IsValidProperty(UserInfo, prop, ref argobjControl23))
@@ -569,7 +569,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
             }
 
             CheckBox chkTest = (CheckBox)FindMembershipControlsRecursive(plhProfile, plhProfile.ID + "_" + Libraries.UserManagement.Constants.ControlId_RoleMembership);
-            if (chkTest is object)
+            if (chkTest != null)
             {
                 // at least on role membership checkbox found. Now lookup roles that could match
                 var rc = new RoleController();
@@ -585,7 +585,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
                         blnPending = true;
                     }
 
-                    if (chkRole is object)
+                    if (chkRole != null)
                     {
                         if (blnPending)
                         {
@@ -675,7 +675,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
                     objInterface = Activator.CreateInstance(strAssembly, strClass).Unwrap();
                 }
 
-                if (objInterface is object)
+                if (objInterface != null)
                 {
                     var argServer = Server;
                     var argResponse = Response;
@@ -684,7 +684,7 @@ namespace Connect.Modules.UserManagement.AccountUpdate
                 }
             }
 
-            if (Request.QueryString["ReturnURL"] is object)
+            if (Request.QueryString["ReturnURL"] != null)
             {
                 Response.Redirect(Server.UrlDecode(Request.QueryString["ReturnURL"]), true);
             }
